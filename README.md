@@ -11,6 +11,15 @@ By default it looks for a file called "accounts.txt".  You can use the
 go run main.go -f mypeople.txt | tee run.3
 ```
 
+Where mypeople.txt is just a file with user names that looks like:
+
+```
+vallard
+datacenter
+kubernetes
+ciscocloud
+```
+
 You'll need to also define an env variable called GETHUB_TOKEN so you can
 actually make more than 5 requests per hour
 
