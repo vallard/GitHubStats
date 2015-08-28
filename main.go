@@ -32,9 +32,10 @@ type Repo struct {
 	FullName       string `json:"full_name"`
 	Description    string
 	Fork           bool
-	ForkCount      int `json:"forks_count"`
-	WatcherCount   int `json:"watchers_count"`
-	StargazerCount int `json:"stargazers_count"`
+	ForkCount      int    `json:"forks_count"`
+	WatcherCount   int    `json:"watchers_count"`
+	StargazerCount int    `json:"stargazers_count"`
+	Language       string `json:"language"`
 }
 
 func getProjects(user string, g GitHub) {
@@ -70,7 +71,13 @@ func getProjects(user string, g GitHub) {
 	}
 	//fmt.Printf("%v\n", r)
 	for _, proj := range r {
-		fmt.Printf("%s %d %d %t\n", proj.FullName, proj.WatcherCount, proj.StargazerCount, proj.Fork)
+		fmt.Printf("%s %s %d %t %d %s\n",
+			proj.FullName,
+			proj.Owner.Login,
+			proj.StargazerCount,
+			proj.Fork,
+			proj.ForkCount,
+			proj.Language)
 	}
 
 }
