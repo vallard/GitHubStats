@@ -35,6 +35,48 @@ project-name watcher-count star-count isfork?
 to sort by the most stars:
 
 ``` 
-sort -rnk 2 repos.out3 >topranked.out1
+sort -rnk 3 repos.out3 >topranked.out1
 ```
 Will put the top ranked repo first in the new topranked.out1 file. 
+
+## Languages
+
+To see what languages are the most popular
+```
+awk '{print $6}' language.out | sort  >l.out
+awk '{a[$1]++;b[$1]=b[$1]+$2} END{for (i in a) print i,a[i],b[i]}' l.out
+```
+Will render output like: 
+```
+Swift 1 0
+Java 26 0
+Ruby 53 0
+Puppet 32 0
+Arduino 3 0
+Lua 1 0
+XSLT 1 0
+Go 67 0
+C# 4 0
+CoffeeScript 1 0
+C++ 13 0
+Scala 8 0
+PowerShell 1 0
+C 39 0
+Emacs 1 0
+Python 259 0
+Shell 71 0
+Makefile 6 0
+Objective-C 2 0
+JavaScript 36 0
+R 7 0
+Perl 7 0
+BitBake 1 0
+VimL 7 0
+HTML 17 0
+Clojure 1 0
+OpenSCAD 1 0
+PHP 20 0
+TeX 1 0
+CSS 13 0
+HCL 1 0
+```
